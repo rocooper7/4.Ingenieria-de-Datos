@@ -1,0 +1,33 @@
+news_sites:
+  eluniversal:
+    url: http://www.eluniversal.com.mx
+    queries:
+      homepage_article_links: '.field-content a'
+      article_body: '.field-name-body'
+      article_title: '.pane-content h1'
+  spdnoticias:
+    url: https://www.sdpnoticias.com
+    queries:
+      homepage_article_links: '.articleModule a'
+      article_body: '.article-content'
+      article_title: '.title-container h1'
+  unotv:
+    url: https://www.unotv.com
+    queries:
+      homepage_article_links: '.item-principal'
+      article_body: '.section-article'
+      article_title: '.article-title h1'
+  televisanoticias:
+    url: https://noticieros.televisa.com
+    queries:
+      homepage_article_links: '.post a'
+      article_body: '.single-post-content'
+      article_title: '.single-post-title h1'
+  cnnnoticias:
+    url: https://cnnespanol.cnn.com
+    queries:
+      homepage_article_links: '.news__title a'
+      article_body: '.storyfull__body'
+      article_title: '.storyfull__title'
+
+
