@@ -2,7 +2,6 @@ import argparse
 import csv
 import datetime
 import logging
-logging.basicConfig(level=logging.INFO)
 import re
 
 from requests.exceptions import HTTPError, ContentDecodingError, ConnectionError
@@ -11,7 +10,7 @@ from urllib3.exceptions import MaxRetryError, DecodeError,TimeoutError, NewConne
 import news_page_objects as news
 from common import config
 
-
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 is_well_formed_link = re.compile(r'^https?://.+/.+$') # https://example.com/hello
 is_root_path = re.compile(r'^/.+$') # /some-text
@@ -25,26 +24,29 @@ def _news_scraper(news_site_uid):
 
     articles = []
     for link in homepage.article_links:
-        article = _fetch_article(news_site_uid, host, link)
-
+        article = _fetch_article(news_site_uid, host, link)  
+    
         if article:
             logger.info('Article fetched!!')
-            articles.append(article)
-
+            articles.append(article)     #Va a guardar objetos de la subclase 
+    # print(articles)
+    
     _save_articles(news_site_uid, articles)
 
 
 def _save_articles(news_site_uid, articles):
     now = datetime.datetime.now().strftime('%Y_%m_%d')
     out_file_name = f'{news_site_uid}_{now}_articles.csv'
-    csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0])))
+    csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0])))   #Ve las funciones del primer objeto de la lista (body,tittle,url)
+    #print(csv_headers,dir(articles[0]))
     
     with open(out_file_name, mode='w+',encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(csv_headers)
 
         for article in articles:
-            row = [str(getattr(article, prop)) for prop in csv_headers]
+            row = [str(getattr(article, prop)) for prop in csv_headers]   #Saca el atributo (body, tittle, url) de los objetos
+            #[print(str(getattr(article,prop))) for prop in csv_headers]  
             writer.writerow(row)
 
 
