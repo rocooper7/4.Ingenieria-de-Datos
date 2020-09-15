@@ -16,7 +16,8 @@ def main(filename):
     session = Session()
     articles = pd.read_csv(filename)
 
-    for index, row in articles.iterrows():
+    for index, row in articles.iterrows():  #iterrows función de pandas para iterar
+        # print(index, row)
         logger.info('Loading article id {} into DB'.format(row['uid']))
         article = Article(row['uid'],
                           row['body'],
