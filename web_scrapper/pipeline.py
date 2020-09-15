@@ -5,7 +5,7 @@ import shutil
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-news_sites_uids = ['spdnoticias']
+news_sites_uids = ['eluniversal']
 
 
 def main():
