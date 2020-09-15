@@ -2,9 +2,9 @@ news_sites:
   eluniversal:
     url: http://www.eluniversal.com.mx
     queries:
-      homepage_article_links: '.field-content a'
+      homepage_article_links: '.contenido-principal a'
       article_body: '.field-name-body'
-      article_title: '.pane-content h1'
+      article_title: '.contenido-principal h1'
   spdnoticias:
     url: https://www.sdpnoticias.com
     queries:
