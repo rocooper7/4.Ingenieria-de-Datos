@@ -29,6 +29,9 @@ def main(filename):
                           row['url'])
         session.add(article)
 
+        # print(article.__str__())    #Para ver los objetos
+        # print(article.__repr__())
+
     session.commit()
     session.close()
 

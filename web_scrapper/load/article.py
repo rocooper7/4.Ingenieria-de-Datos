@@ -25,3 +25,8 @@ class Article(Base):
         self.n_tokens_title = n_tokens_title
         self.url = url
 
+    # def __str__(self):       #Para ver objetos en OOP
+    #     return f'uid:{self.id}, host:{self.host}, title:{self.title}'
+
+    # def __repr__(self):     #Para ver estructuras de objetos en OOP
+    #     return {'uid':self.id, 'host':self.host, 'title': self.title}
